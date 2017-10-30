@@ -9,6 +9,8 @@
 //看到了一个成功将递归转换为循环的解决方法！！，在此列出
 
 public boolean canWinNim(int n){
-  if(n<0)
+  if(n<0){
+    
+  }
 
 }
