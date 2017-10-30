@@ -10,7 +10,20 @@
 
 public boolean canWinNim(int n){
   if(n<0){
-    
+    return false;
   }
+  boolean[] res = boolean[n+1];
+  res[0] = true;
+  res[1] = true;
+  res[2] = true;
+  res[3] = true;
+  for(int i = 4;i<n+1;i++){
+    res[i] = !(res[i-1]&&res[i-2]&&res[i-3]);
+  }
+  return res[n];
+}
 
+
+public boolean conWinNim(int n){
+  return !(n%4 == 0);
 }
