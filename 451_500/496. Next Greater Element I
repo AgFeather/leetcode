@@ -1,0 +1,26 @@
+//You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
+
+//The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
+
+//注意arraylist中indexOf()函数的运用。
+
+public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int[] res = new int[nums1.length];
+	for (int i = 0; i < res.length; i++) {
+		res[i] = -1;
+	}
+	ArrayList<Integer> list = new ArrayList<>();
+	for (int i = 0; i < nums2.length; i++) {
+		list.add(nums2[i]);
+	}
+	for (int i = 0; i < nums1.length; i++) {
+		int temp = list.indexOf(nums1[i]);
+		for (int j = temp+1; j < nums2.length; j++) {
+			if (nums2[j]>nums1[i]) {
+				res[i]=nums2[j];
+                break;
+			}
+		}
+	}
+	return res;
+    }
