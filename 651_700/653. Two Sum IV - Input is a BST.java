@@ -39,45 +39,38 @@ class Solution {
 
 
 //这个是一个更加高效的方法，分别将树的最左边一支干和最右边枝干放入到两个stack中，然后用两个栈peek的和与k比较，大于k的话，将l_stack的pop的所有右子树压入栈中
-小于k的话，讲r_stack的pop的所有左子树压入栈中，等于k则返回true
-public boolean findTarget(TreeNode root, int k){
-		if (root == null) {
-			return false;
-		}
-		Stack<TreeNode>() l_stack = new Stack<>();
-		Stack<TreeNode>() r_stack = new Stack<>();
-		stackAdd(l_stack,root,true);
-		stackAdd(r_stack,root,false);
-		while(r_stack.peek()!=l_stack.peek()){
-			int temp = r_stack.peek().val+l_stack.peek().val;
-			if (temp == k) {
-				return true;
-			}
-			else if (temp>k) {
-				stackNext(l_stack,false);
-			}
-			else
-				stackNext(r_stack,true);
-		}
-		return false;
+//小于k的话，讲r_stack的pop的所有左子树压入栈中，等于k则返回true
+public boolean findTarget(TreeNode root, int k) {
+        if(root == null) return false;
+    	Stack<TreeNode> l_stack = new Stack<>();
+    	Stack<TreeNode> r_stack = new Stack<>();
+    	stackAdd(l_stack, root, true);
+    	stackAdd(r_stack, root, false);
+    	while(l_stack.peek() != r_stack.peek()){
+    	    int n = l_stack.peek().val + r_stack.peek().val;
+    	    if(n == k){
+    		return true;
+    	    }else if(n > k){
+    		stackNext(r_stack, false);
+    	    }else{
+		stackNext(l_stack, true);
+    	    }
+    	}
+    	return false;
+    }
+    
+    private void stackAdd(Stack<TreeNode> stack, TreeNode node, boolean isLeft){
+    	while(node != null){
+    	    stack.push(node);
+            node = (isLeft) ? node.left : node.right;
+    	}
+    }
 
-	}
-	public void stackNext(Stack stack,boolean isLeft){
-		node = stack.pop();
-		if (isLeft) {
-			stackAdd(stack, node.right, isLeft);
-		}
-		else{
-			stackAdd(stack, node.left, isLeft);
-		}
-	}
-	public void stackAdd(Stack stack,TreeNode node,boolean isLeft){
-		while(node!=null){
-			stack.push(node);
-			if (isLeft) {
-				node = node.left;
-			}
-			else
-				node = node.right
-		}
-	}
+    private void stackNext(Stack<TreeNode> stack, boolean isLeft){
+    	TreeNode node = stack.pop();
+    	if(isLeft){
+    	    stackAdd(stack, node.right, isLeft);
+    	}else{
+    	    stackAdd(stack, node.left, isLeft);
+    	}
+    }
