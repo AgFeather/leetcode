@@ -1,6 +1,7 @@
 /*
 
-Given a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1.
+Given a string, find the first non-repeating character in it
+and return it's index. If it doesn't exist, return -1.
 
 Examples:
 
@@ -19,12 +20,8 @@ class Solution {
     public int firstUniqChar(String s) {
         Map<Character,Integer> map = new HashMap<>();
     	for (int i = 0; i<s.length(); i++) {
-    		if (map.containsKey(s.charAt(i))) {
-    			map.put(s.charAt(i),map.get(s.charAt(i))+1);
-    		}
-    		else{
-    			map.put(s.charAt(i),1);
-    		}
+            char temp = s.charAt(i);
+            map.put(temp, map.getOrDefault(temp, 0)+1);
     	}
     	for (int i = 0; i<s.length(); i++) {
     		if (map.get(s.charAt(i)) == 1) {

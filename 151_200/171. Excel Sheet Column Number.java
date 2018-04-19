@@ -1,7 +1,8 @@
 /*
 Related to question Excel Sheet Column Title
 
-Given a column title as appear in an Excel sheet, return its corresponding column number.
+Given a column title as appear in an Excel sheet,
+return its corresponding column number.
 
 For example:
 
@@ -11,7 +12,7 @@ For example:
     ...
     Z -> 26
     AA -> 27
-    AB -> 28 
+    AB -> 28
     BA -> 53
 
 */
@@ -21,10 +22,10 @@ For example:
 class Solution {
     public int titleToNumber(String s) {
         int res = 0;
-        char[] array = s.toCharArray();
-        for (int i = 0; i<s.length(); i++) {
-          res+=Math.pow(26, i)*(array[s.length()-i-1]-64);
-        } 
+        len = s.length();
+        for (int i = 0; i < len; i++ ) {
+            res += Math.pow(26, i) * (s.charAt(len-i-1) - 'A');
+        }
         return res;
     }
 }

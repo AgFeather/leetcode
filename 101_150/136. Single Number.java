@@ -1,6 +1,8 @@
-//Given an array of integers, every element appears twice except for one. Find that single one.
+//Given an array of integers, every element appears twice except for one.
+//Find that single one.
 
-//Note: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+//Note: Your algorithm should have a linear runtime complexity. Could you
+//Nimplement it without using extra memory?
 
 public int singleNumber(int[] nums) {
         int res = 0;

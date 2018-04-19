@@ -1,7 +1,10 @@
 /*
-Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
-
+Given an array of integers, find if the array contains any duplicates.
+Your function should return true if any value appears at least twice
+in the array, and it should return false if every element is distinct.
 */
+
+//最开始的想法是使用map对每个integer进行计数，看是否都为1，过于繁杂
 
 //将nums中所有元素都放入set中，然后比较set和nums的长度，如果相同则表示所有元素不重复
 class Solution {
