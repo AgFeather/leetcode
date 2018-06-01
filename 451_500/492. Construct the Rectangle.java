@@ -1,5 +1,6 @@
 /*
-For a web developer, it is very important to know how to design a web page's size. So, given a specific rectangular web page’s area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:
+For a web developer, it is very important to know how to design a web page's size. So, given a specific rectangular web page’s area,
+your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:
 
 1. The area of the rectangular web page you designed must equal to the given target area.
 
@@ -10,42 +11,13 @@ You need to output the length L and the width W of the web page you designed in 
 Example:
 Input: 4
 Output: [2, 2]
-Explanation: The target area is 4, and all the possible ways to construct it are [1,4], [2,2], [4,1]. 
+Explanation: The target area is 4, and all the possible ways to construct it are [1,4], [2,2], [4,1].
 But according to requirement 2, [1,4] is illegal; according to requirement 3,  [4,1] is not optimal compared to [2,2]. So the length L is 2, and the width W is 2.
-
-
 */
+
+
 //对于要寻找的乘积对x，y，因规定x和y的差别最小，所以一定满足x+y最小。根据这个数学定理进行编程。
-
-
-
-
-class Solution {
-    public int[] constructRectangle(int area) {
-		List<Integer> list = new ArrayList<>();
-		int half = area/2;
-		for (int i = 1;i<=half ;i++ ) {
-			if (area%i == 0) {
-				list.add(i);
-			}
-		}
-		int x = 1;
-		int y = 1;
-		int min = area+1;
-		for(Integer temp1:list){
-			int temp2 = area/temp1;
-			if (temp1+temp2<=min) {
-				x = temp1>temp2?temp1:temp2;
-				y = temp1<temp2?temp1:temp2;
-				min = temp1+temp2;
-			}
-		}
-		int[] res = {x,y};
-		return res;
-    }
-}
-
-//一个更加快速的解法，从area的平方根开始寻找，不断递减，直至找到第一个可以整除area的数。
+//可以从area的平方根开始寻找，不断递减，直至找到第一个可以整除area的数。
 public int[] constructRectangle(int area){
 		int x = (int)Math.sqrt(area);
 		while(area%x!=0){
@@ -54,7 +26,3 @@ public int[] constructRectangle(int area){
 		int[] res = {x,area/x};
 		return res;
 	}
-
-
-
-

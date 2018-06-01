@@ -1,4 +1,9 @@
-//Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
+//Given a positive integer, output its complement number. The complement strategy is to
+//flip the bits of its binary representation.
+
+
+
+
 public int findComplement(int num){
     return ~num&((Integer.highestOneBit(num)<<1)-1;
    // highestOneBit会返回参数最高位的数值。

@@ -1,4 +1,5 @@
-//calculate the hamming distance of two integers. eg: 4(0,1,0,0) and 1(0,0,0,1).hamming distance is 2
+//calculate the hamming distance of two integers.
+// eg: 4(0,1,0,0) and 1(0,0,0,1).hamming distance is 2
 public int hammingDistance(int x, int y) {
     int temp = x^y;
 	int res = 0;

@@ -10,25 +10,23 @@
 
 
 // 很简单的题，对三种情况分别判断即可
-
-
-   public boolean detectCapitalUse(String word) {
-        if (word.equals(word.toLowerCase())||word.equals(word.toUpperCase())) {
-			return true;
-		}
-        char[] array = word.toCharArray();
-        if (array[0]<65||array[0]>90) {
+public boolean detectCapitalUse(String word) {
+    if (word.equals(word.toLowerCase())||word.equals(word.toUpperCase())) {
+		return true;
+	}
+    if (word.charAt(0)<'A'||word.charAt(0)>'Z') {
+		return false;
+	}
+    for (int i = 1; i < word.length(); i++) {
+		if (word.charAt(i)>='A'&&word.charAt(i)<='Z') {
 			return false;
 		}
-        for (int i = 1; i < array.length; i++) {
-			if (array[i]>=65&&array[i]<=90) {
-				return false;
-			}
-		}
-        return true;
-  }
+	}
+    return true;
+}
 
 
 //更便捷的解法，正则表达式
-
-return word.match("[A-Z]+|[a-z]+|[A-Z][a-z]+");
+public boolean detectCapitalUse(String word){
+    return word.match("[A-Z]+|[a-z]+|[A-Z][a-z]+");
+}
