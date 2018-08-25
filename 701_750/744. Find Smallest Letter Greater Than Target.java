@@ -15,22 +15,13 @@ target = "c"
 Output: "f"
 */
 
+// 注意题干中强调的sorted list，所以不需要比较每个letter和target的距离
 
-class Solution {
-    public char nextGreatestLetter(char[] letters, char target) {
-        char res = ' ';
-		int i = 0;
-		boolean flag = true;
-		for (; i<letters.length; i++) {
-			if (letters[i]>target) {
-				res = letters[i];
-				flag = false;
-				break;
-			}
+public char nextGreatestLetter(char[] letters, char target) {
+	for (int i = 0; i<letters.length; i++) {
+		if (letters[i]>target) {
+			return letters[i];
 		}
-		if (flag) {
-			return letters[0];
-		}
-		return res;
-    }
+	}
+	return letters[0];
 }

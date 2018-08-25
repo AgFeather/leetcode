@@ -9,22 +9,23 @@ Given s = "leetcode", return "leotcede".
  */
 
 
-//思路很清晰，相当于变相考察StringBuffer的应用
- public String reverseVowels(String s) {
+//思路很清晰
+public String reverseVowels(String s) {
+    char[] cs = s.toCharArray();
     int l = 0;
-    int r = s.length()-1;
-    StringBuffer ss = new StringBuffer(s);
-    while(l < r){
-        while(!isVowels(ss.charAt(l)) && l < r) l++;
-        while(!isVowels(ss.charAt(r)) && l < r) r--;
-        char temp = ss.charAt(l);
-        ss.setCharAt(l, ss.charAt(r));
-        ss.setCharAt(r, temp);
-        r--;
+    int r = cs.length-1;
+    while(l<r){
+        while(!isVowels(cs[l]) && l<s.length()){l++;}
+        while(!isVowels(cs[r]) && r>=0){r--;}
+        if (l>r){break;}
+        char temp = cs[l];
+        cs[l] = cs[r];
+        cs[r] = temp;
         l++;
+        r--;
     }
-    return ss.toString();
- }
+    return new String(cs);
+}
 public boolean isVowels(char c){
     if (c =='a'||c =='e'||c =='i'||c == 'o'||c =='u'||c=='A'||c=='E'||c=='I'||c=='O'||c=='U')
         return true;

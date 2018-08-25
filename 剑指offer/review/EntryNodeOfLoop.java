@@ -21,11 +21,10 @@ public ListNode EntryNodeOfLoop(ListNode pHead){
 
 
 /*
-不适用set，利用快慢指针求解
+不使用set，利用快慢指针求解
 
 第一步，找环中的一个点。分别用p1，p2指向链表头部，p1每次走一步，p2每次走二步，直到p1==p2找到在环中的相汇点。
-第二步，链接：https://www.nowcoder.com/questionTerminal/253d2c59ec3e4bc68da16833f79a38e4
-来源：牛客网
+
 
 第二步，找环的入口。接上步，当p1==p2时，p2所经过节点数为2x,p1所经过节点数为x,设环中有n个节点,
 p2比p1多走一圈有2x=n+x; n=x;可以看出p1实际走了一个环的步数，再让p2指向链表头部，p1位置不变，

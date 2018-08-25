@@ -51,3 +51,7 @@ Note: If a tree has more than one mode, you can return them in any order.
      helper(root.right, map);
      helper(root.left, map);
  }
+
+
+
+// 根据题干对BST的定义，重复的元素只会出现在左子节点上，所以针对每个节点，计算它左子树上值相等点的个数，然后递归找到最大值。

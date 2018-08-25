@@ -18,21 +18,19 @@ Your function should return length = 5, with the first five elements of nums bei
 
 It doesn't matter what values are set beyond the returned length.
  */
-//只需要用一个index记录更改的尾部即可
+//只需要用一个index记录更改的尾部即可 快慢指针
 public int removeDuplicates(int[] nums){
     if (nums.length == 0) {
         return 0;
     }
     int index = 1;
     int current = nums[0];
-    int res = 1;
     for (int i = 1; i<nums.length; i++) {
         if (current != nums[i]){
             current = nums[i];
-            res++;
             nums[index] = nums[i];
             index++;
         }
     }
-    return res;
+    return index;
 }

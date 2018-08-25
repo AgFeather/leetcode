@@ -48,10 +48,10 @@ public ListNode reverseList(ListNode head){
 		stack.push(temp);
 	}
 	ListNode res = stack.pop();
+    ListNode temp = res;
 	while(!stack.isEmpty()){
-		ListNode temp = stack.pop();
-		res.next = temp;
-		res = temp;
+		temp.next = stack.pop();
+		temp = temp.next;
 	}
 	return res;
 }

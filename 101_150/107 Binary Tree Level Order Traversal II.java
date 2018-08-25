@@ -29,7 +29,6 @@ public List<List<Integer>> levelOrderBottom(TreeNode root) {
            return new ArrayList<List<Integer>>();
         }
         List<List<Integer>> res = new ArrayList<>();
-        Stack<List<Integer>> stack = new Stack<>();
         Queue<List<TreeNode>> queue = new LinkedList<>();
         List<TreeNode> temp = new ArrayList<>();
         temp.add(root);
@@ -48,10 +47,8 @@ public List<List<Integer>> levelOrderBottom(TreeNode root) {
             if (!childNode.isEmpty()) {
                 queue.offer(childNode);
             }
-            stack.push(tempList);
+            res.add(tempList);
         }
-        while(!stack.isEmpty()){
-            res.add(stack.pop());
-        }
+        Collections.reverse(res);
         return res;
     }

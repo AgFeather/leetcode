@@ -19,10 +19,10 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 //对于要寻找的乘积对x，y，因规定x和y的差别最小，所以一定满足x+y最小。根据这个数学定理进行编程。
 //可以从area的平方根开始寻找，不断递减，直至找到第一个可以整除area的数。
 public int[] constructRectangle(int area){
-		int x = (int)Math.sqrt(area);
-		while(area%x!=0){
-			x--;
-		}
-		int[] res = {x,area/x};
-		return res;
+	int x = (int)Math.sqrt(area);
+	while(area%x!=0){
+		x--;
 	}
+	int[] res = {x,area/x};
+	return res;
+}

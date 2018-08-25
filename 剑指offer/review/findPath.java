@@ -6,6 +6,7 @@
  */
 
 /*
+可以使用来类的成员变量，会简化递归过程
  */
 public ArrayList<ArrayList<Integer>> allList = new ArrayList<>();
 public ArrayList<Integer> tempList = new ArrayList<>();
@@ -20,6 +21,6 @@ public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
     }
     FindPath(root.left, target);
     FindPath(root.right, target);
-    tempList.remove(tempList.size()-1);
+    tempList.remove(tempList.size()-1); // !注意每次删除上一次遍历加入到list中的叶子节点
     return allList;
 }
