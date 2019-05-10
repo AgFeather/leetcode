@@ -14,16 +14,14 @@
 
 流文件和一般问题不同，buffer的内容是在不断改变的，在测试过程中也是调用一个insert，一次解函数。
 
-一个字符占8位，因此不会超过256个，可以申请一个256大小的数组来实现一个简易的哈希表。
+一个字符占4位，因此不会超过128个，可以申请一个128大小的数组来实现一个简易的哈希表。
 时间复杂度为O(n)，空间复杂度O(1).
  */
 public class Solution{
     public int [] hashtable = new int[128];
     public StringBuffer s = new StringBuffer();
-    //Insert one char from stringstream
     public void Insert(char ch){
         s.append(ch);
-    //    if (hashtable[ch] == 0) hashtable[ch] = 1;
         hashtable[ch]++;
     }
 
